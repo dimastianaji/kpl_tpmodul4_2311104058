@@ -25,9 +25,9 @@ namespace tpmodul4_2311104058
 
         public string GetKodePos(string kelurahan)
         {
-            if (kodePosDict.ContainsKey(kelurahan))
+            if (kodePosDict.TryGetValue(kelurahan, out string kodePos))
             {
-                return kodePosDict[kelurahan];
+                return kodePos;
             }
             else
             {

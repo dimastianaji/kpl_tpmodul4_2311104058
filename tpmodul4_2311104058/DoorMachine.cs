@@ -6,22 +6,27 @@ using System.Threading.Tasks;
 
 namespace tpmodul4_2311104058
 {
-    class DoorMachine
+    public enum DoorState
     {
-        private enum State { Terkunci, Terbuka }
-        private State currentState;
+        Terkunci,
+        Terbuka
+    }
+
+    public class DoorMachine
+    {
+        private DoorState _state;
 
         public DoorMachine()
         {
-            currentState = State.Terkunci;
+            _state = DoorState.Terkunci;
             Console.WriteLine("Pintu terkunci");
         }
 
         public void BukaPintu()
         {
-            if (currentState == State.Terkunci)
+            if (_state == DoorState.Terkunci)
             {
-                currentState = State.Terbuka;
+                _state = DoorState.Terbuka;
                 Console.WriteLine("Pintu tidak terkunci");
             }
             else
@@ -32,9 +37,9 @@ namespace tpmodul4_2311104058
 
         public void KunciPintu()
         {
-            if (currentState == State.Terbuka)
+            if (_state == DoorState.Terbuka)
             {
-                currentState = State.Terkunci;
+                _state = DoorState.Terkunci;
                 Console.WriteLine("Pintu terkunci");
             }
             else
@@ -43,6 +48,7 @@ namespace tpmodul4_2311104058
             }
         }
     }
+
 }
 
 
